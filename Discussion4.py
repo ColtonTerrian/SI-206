@@ -7,7 +7,7 @@ class Rectangle():
         self.height = h
 # Create the "__str__" method
     def __str__(self):
-        return "A rectangle with width " + str(self.width) + " and height " + str(self.height)
+        return f"A rectangle with width {self.width} and height {self.height}"
 
 # YOUR CODE HERE
 # Create the "area_calculator" method
@@ -31,13 +31,14 @@ def main():
     print(r2)
     print("Area:", r2.area_calculator())
 # call the __eq__ method
-    print(r1 == r2)
+    print("Equal: r1 == r2?", r1 == r2)
     print()
     r3 = Rectangle(10,15)
-    print(r2 == r3)
+    print("Equal: r2 == r3?", r2 == r3)
 # you can create additional rectangle objects to
 # test your code or learn more about how the class behaves
     pass
 if __name__ == "__main__": 
     main()
+
 
