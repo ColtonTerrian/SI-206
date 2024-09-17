@@ -34,7 +34,7 @@ def main():
     print(r1 == r2)
     print()
     r3 = Rectangle(10,15)
-    print(r1 == r3)
+    print(r2 == r3)
 # you can create additional rectangle objects to
 # test your code or learn more about how the class behaves
     pass
