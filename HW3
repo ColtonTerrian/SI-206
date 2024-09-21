@@ -98,6 +98,27 @@ class DigitalBookofAnswers():
     #       self: the curent object
     # RETURNS: a list
     def answer_log(self):
+        if len(self.answered_list) == 0:
+            print("Empty")
+            return []
+
+        # Something to store frequency of each answer
+        answer_count = {}
+
+        # Count how many of each answer
+        for index in self.answered_list:
+            if index in answer_count:
+                answer_count[index] += 1
+            else:
+                answer_count[index] = 1
+
+        # Make lists of strings to execute
+        answer_log_list = [f"{count} - {self.book_answer_list[index].lower()}" for index, count in answer_count.items()]
+
+        # Sort them in a descending order
+        answer_log_list.sort(key=lambda x: int(x.split(" - ")[0]), reverse=True)
+
+        return answer_log_list
    
 
 
