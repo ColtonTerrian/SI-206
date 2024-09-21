@@ -30,6 +30,10 @@ class DigitalBookofAnswers():
     #       self: the curent object
     # RETURNS: a string
     def __str__(self):
+        if len(self.book_answer_list) == 0:
+            return ""
+
+        return " - ".join(self.book_answer_list)
      
         
 
