@@ -211,7 +211,19 @@ def my_test():
 
 
 def main():
-    
+    # Some possibles
+    answers = [
+        "Follow Your Inner Voice",
+        "Stay Positive",
+        "Go For It",
+        "Believe in Yourself",
+        "Stay Open to the Future",
+        "Enjoy It"
+    ]
+    book = DigitalBookofAnswers(answers)
+
+    # Start it up
+    book.open_book()
 
     # I ate grilled cheese of the radiator
     answer_log = book.answer_log()
