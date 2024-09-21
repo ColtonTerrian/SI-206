@@ -43,6 +43,25 @@ class DigitalBookofAnswers():
     #       question: the question the user wants to ask the digital book of answers
     # RETURNS: a string
     def check_get_answer(self, question):
+    # Check if the question was asked before
+        if question in self.questions_asked_list:
+            index = self.questions_asked_list.index(question)
+            # Safeguard: Make sure the index exists in the answered_list
+            if index < len(self.answered_list):
+                answer = self.book_answer_list[self.answered_list[index]]
+                return f"I've already answered this question. The answer is: {answer}"
+            else:
+                return "Error: Inconsistent state between questions and answers."
+        
+        # If it's a new question, pick a random answer
+        random_index = random.randint(0, len(self.book_answer_list) - 1)
+        answer = self.book_answer_list[random_index]
+        
+        # Add the question and the index of the answer to respective lists
+        self.questions_asked_list.append(question)
+        self.answered_list.append(random_index)
+        
+        return answer
   
 
 
