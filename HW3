@@ -71,6 +71,24 @@ class DigitalBookofAnswers():
     #   self: the current object
     # RETURNS: None
     def open_book(self):
+        turn = 1  # Initialize turn counter
+
+        # Start the session
+        while True:
+            # Prompt them for a question?
+            question = input(f"Turn {turn} - Please enter your question: ")
+
+            # If done, then we just exit and print
+            if question == "Done":
+                print("Goodbye! See you soon.")
+                break
+
+            # elsewise, we do something esle
+            answer = self.check_get_answer(question)
+            print(answer)
+
+            # Increment the turn number
+            turn += 1
   
 
 
