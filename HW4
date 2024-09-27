@@ -66,9 +66,19 @@ class User:
 
         RETURNS: a Boolean value (True or False)
         '''
-        pass
+        total = 0
+        for service_obj, service_det in request.items():
+            duration = service_det['duration']
+            priority = service_det['priority']
+            total += vendor.calculate_service_cost(service_obj, duration, priority, self)
 
-
+        if total > self.account:
+            return False
+        if vendor.process_request(request):
+            self.account -= total
+            vendor.accept_payment(total)
+            return True
+        return False
 class Service:
     def __init__(self, name, price):
         ''' 
@@ -166,7 +176,6 @@ class Vendor:
             cost = cost * 0.8
         if(priority):
             cost = cost * 1.5
-        user.account -= cost
 
         return cost
         
@@ -183,7 +192,10 @@ class Vendor:
         
         RETURNS: None
         '''
-        pass
+        if service_obj in self.capacity:
+            self.capactiy[service_obj] += duration
+        else:
+            self.capacity[service_obj] = duration
 
 
     def process_request(self, request):
@@ -196,7 +208,6 @@ class Vendor:
 
         RETURNS: a Boolean value (True or False)
         '''
-        pass
 
 
 class TestAllMethods(unittest.TestCase):
