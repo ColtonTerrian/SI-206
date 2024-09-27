@@ -318,8 +318,8 @@ class TestAllMethods(unittest.TestCase):
                 "priority": True
             }}
         ))
-        self.assertAlmostEqual(ali.account, 15, 2)  
-        self.assertAlmostEqual(dunder_services.income, 0, 2)
+        self.assertAlmostEqual(ali.account, 20, 2)  
+        self.assertAlmostEqual(dunder_services.income, 180, 2)
 
 
 def main():
