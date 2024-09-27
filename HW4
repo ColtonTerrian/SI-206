@@ -208,6 +208,16 @@ class Vendor:
 
         RETURNS: a Boolean value (True or False)
         '''
+        for service_obj, serv_det in request.items():
+            duration = serv_det['duration']
+
+            if service_obj not in self.capacity or self.capacity[service_obj] < duration:
+                return False
+        
+        for service_obj, serv_det in request.items():
+            duration = serv_det['duration']
+            self.capacity[service_obj] -= duration
+        return True
 
 
 class TestAllMethods(unittest.TestCase):
